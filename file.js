@@ -9,6 +9,8 @@
             alert("Login successful!");
 
             // Redirect to anothor html page
-            window.location.href = "http://127.0.0.1:5501/pair/shop/index.html"
+            window.location.href = "http://127.0.0.1:5500/shop/index.html"
         }
     }
+
+    

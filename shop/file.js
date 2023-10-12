@@ -36,6 +36,8 @@ function each(array, func) {
   }
 
 
+
+
 function makeSneaker(name,price,brand,images){
   return {
    name:name,
@@ -89,7 +91,7 @@ var nameFilter = function (name) {
     <h3>${item.name}</h3>
     <p><p>Price: ${item.price}</p></p>
     <p><p>Brand:${item.brand}</p></p>
-    <button class="buy">Add to Cart</button>
+   <button class="buy">Add to Cart</button>
     </div>
     </div>
     </div>`)
@@ -270,15 +272,38 @@ var sneakersList=MakeSneakersShop()
         var getnextindex=change1()
         this.src=getnextindex
       })  
-        
+   
+      function display(item) {
+        $('#product').append(`
+          <div class="oneProduct">
+            <div class="productDetails">
+              <img src=${item.images[0]} id="img">
+              <div class="productAbout">
+                <h3>${item.name}</h3>
+                <p><p>Price: $<span class="productPrice">${item.price}</span></p></p>
+                <p><p>Brand: ${item.brand}</p></p>
+                <button class="buy">Add to Cart</button>
+              </div>
+            </div>
+          </div>`);
+      
+        // Attach a click event handler to the "Add to Cart" button
+        $('.buy').on('click', function() {
+          addToCart(this);
+        });
+      }
 
+      let totalPrice = 0;
 
-    
+function addToCart(button) {
+  const $product = $(button).closest('.oneProduct');
+  const productPrice = parseFloat($product.find('.productPrice').text());
+  totalPrice += productPrice;
+  updateTotalPrice();
+}
 
+function updateTotalPrice() {
+  $('#totalPrice').text(`Total Price: $${totalPrice.toFixed(2)}`);
+}
 
-
-
-
-
-
-    
+       
