@@ -305,5 +305,23 @@ function addToCart(button) {
 function updateTotalPrice() {
   $('#totalPrice').text(`Total Price: $${totalPrice.toFixed(2)}`);
 }
+// ... Your existing code ...
 
+// Create a function to handle the "Buy Now" button click
+$('#buyNow').on('click', function() {
+    buyNow();
+  });
+  
+  // Function to handle "Buy Now" button click
+  function buyNow() {
+    if (totalPrice > 0) {
+      // Implement your "Buy Now" functionality here
+      alert('Buying now! Total Price: $' + totalPrice.toFixed(2));
+    } else {
+      alert('Your cart is empty. Add some products before buying.');
+    }
+  }
+  
+  // ... Rest of your code ...
+  
        
