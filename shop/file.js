@@ -296,8 +296,8 @@ var sneakersList=MakeSneakersShop()
       let totalPrice = 0;
 
 function addToCart(button) {
-  const $product = $(button).closest('.oneProduct');
-  const productPrice = parseFloat($product.find('.productPrice').text());
+  const product = $(button).closest('.oneProduct');
+  const productPrice = parseFloat(product.find('.productPrice').text());
   totalPrice += productPrice;
   updateTotalPrice();
 }
